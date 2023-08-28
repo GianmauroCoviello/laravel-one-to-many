@@ -38,6 +38,20 @@
                         <label class="control-table">Content</label>
                         <textarea name="content" id="content"  class="form-control" required></textarea>
                     </div>
+                    {{-- type --}}
+                    <div class="form-group mb-3 mt-4">
+                        <label class="control-table">Tipo</label>
+                        <select class="form-control" name="type_id" id="type_id">
+                            
+                            <option>Seleziona il tipo di progetto</option>
+                            @foreach($types as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                        
+                        
+                    </div>
+
 
                     <button type="submit" class="btn btn-success mt-4">
                         Salva
