@@ -25,7 +25,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title'=>'required|max:50',
-            'cover_image'=>'image|max:250'
+            'cover_image'=>'image|max:10000'
 
 
         ];

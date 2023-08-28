@@ -12,6 +12,9 @@
                 </div>
                 
                 <p>{{$project->content}}</p>
+
+                
+                <p>{{$project->type->name}}</p>
             </div>
             <div class="col">
                 <a href="{{route('admin.projects.index')}}" class="btn btn-primary">
