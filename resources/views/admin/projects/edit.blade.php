@@ -23,11 +23,13 @@
                 {{-- token obbligatorio --}}
                 @csrf
                 @method('PUT')
+                {{-- title --}}
                 <div class="form-group mb-3 mt-5">
                     <label class="control-table">Titolo</label>
                     <input type="text" name="title" id="title" class="form-control"  value="{{ old('title') ?? $project->title}}">
                 </div>
 
+                {{-- image --}}
                 <div class="form-group">
                     <div class="content-image my-3">
                         <img src="{{asset('storage/' . $project->cover_image)}}" alt="">
@@ -36,18 +38,21 @@
                     <input type="file" class="control-table" name="cover_image"  id="cover_image" >
                 </div>
 
+                {{-- content --}}
                 <div class="form-group mt-3 mb-3 ">
                     <label class="control-table">Content</label>
                     {{-- <input type="text" name="title" id="title" required> --}}
                     <textarea name="content" id="content"  class="form-control"  required> {{ old('content') ?? $project->content}}</textarea>
                 </div>
 
+                {{-- type --}}
                 <div class="form-group mb-3 mt-4">
                     <label class="control-table">Tipo</label>
                     <select class="form-control" name="type_id" id="type_id">
                         
                         <option>Seleziona il tipo di progetto</option>
                         @foreach($types as $type)
+                            {{-- riprendiamo all'interno della option il tipo di progetto inserito inizialmente tramite la funzione old --}}
                             <option {{$type->id === old('type_id', $project->type_id) ? 'selected': ''}} value="{{$type->id}}" >{{$type->name}}</option>
                         @endforeach
                     </select>
