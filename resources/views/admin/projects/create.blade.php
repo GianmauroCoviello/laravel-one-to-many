@@ -45,7 +45,7 @@
                             
                             <option>Seleziona il tipo di progetto</option>
                             @foreach($types as $type)
-                                <option value="{{$type->id}}">{{$type->name}}</option>
+                                <option value="{{$type->id}}" >{{$type->name}}</option>
                             @endforeach
                         </select>
                         

@@ -25,7 +25,8 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title'=>'required|max:50',
-            'cover_image'=>'image|max:10000'
+            'cover_image'=>'image|max:10000',
+            'type_id' => 'required|exists:types,id'
 
 
         ];
@@ -41,7 +42,10 @@ class StoreProjectRequest extends FormRequest
 
             'title.required'=>'il titolo e obbligatorio',
             'title.max'=>'ERRORE: il titolo supera il limite di caratteri consentito (50)',
-            'cover_image.image'=>'ERRORE: assicurati che il file caricato sia in formato png, jpeg, jpg'
+            'cover_image.image'=>'ERRORE: assicurati che il file caricato sia in formato png, jpeg, jpg',
+            'type_id.required'=>'Devi selezionare una tipologia',
+            'type_id.exist'=>'tipologia selezionata non valida',
+
 
         ];
 

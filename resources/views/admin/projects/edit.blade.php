@@ -36,11 +36,26 @@
                     <input type="file" class="control-table" name="cover_image"  id="cover_image" >
                 </div>
 
-                <div class="form-group mb-3 ">
+                <div class="form-group mt-3 mb-3 ">
                     <label class="control-table">Content</label>
                     {{-- <input type="text" name="title" id="title" required> --}}
                     <textarea name="content" id="content"  class="form-control"  required> {{ old('content') ?? $project->content}}</textarea>
                 </div>
+
+                <div class="form-group mb-3 mt-4">
+                    <label class="control-table">Tipo</label>
+                    <select class="form-control" name="type_id" id="type_id">
+                        
+                        <option>Seleziona il tipo di progetto</option>
+                        @foreach($types as $type)
+                            <option {{$type->id === old('type_id', $project->type_id) ? 'selected': ''}} value="{{$type->id}}" >{{$type->name}}</option>
+                        @endforeach
+                    </select>
+                    
+                    
+                </div>
+
+
 
                 <button type="submit" class="btn btn-success mt-4">
                     Salva
